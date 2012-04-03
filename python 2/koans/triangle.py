@@ -18,8 +18,25 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    sides = set( (a,b,c) )
+    if 0 in sides:
+        raise TriangleError, "Zero side"
+    for side in sides:
+        if side < 0:
+            raise TriangleError, "Negative side"
+    #if a**2 != b**2 + c**2:
+    #    raise TriangleError, "Invalid triangle"
+    if a + b > c and a + c > b and b + c > a:
+        d = len( sides )
+        if d == 1:
+            return 'equilateral'
+        elif d == 2:
+            return 'isosceles'
+        elif d == 3:
+            return 'scalene'
+    else:
+        raise TriangleError, "Invalid triangle"
+    
 
 
 # Error class used in part 2.  No need to change this code.

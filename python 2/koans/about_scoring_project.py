@@ -35,7 +35,20 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    score = 0
+    
+    ones = filter( lambda b: b == 1 or None, dice)
+    score += 1000*(len(ones)/3) + 100*(len(ones) % 3)
+    
+    fives = filter( lambda b: b == 5 or None, dice)
+    score += 500*(len(fives)/3) + 50*(len(fives) % 3)
+    
+    for i in [2,3,4,6]:
+        ies = filter( lambda b: b == i or None, dice )
+        score += 100*i*(len(ies)/3)
+    
+    
+    return score
 
 
 class AboutScoringProject(Koan):

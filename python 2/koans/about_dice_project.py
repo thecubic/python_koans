@@ -14,10 +14,12 @@ class DiceSet(object):
     def values(self):
         return self._values
               
-    def roll(self, n):
+    def roll(self, n):        
         # Needs implementing!
         # Tip: random.randint(min, max) can be used to generate random numbers
-        pass
+        self._values = []
+        for i in range(n):
+            self._values.append( random.randint(1,6) )
 
 
 class AboutDiceProject(Koan):
